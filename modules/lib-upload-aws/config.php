@@ -16,18 +16,12 @@ return [
     '__dependencies' => [
         'required' => [
             [
-                'lib-image' => NULL
-            ],
-            [
                 'lib-upload' => NULL
-            ],
-            [
-                'lib-model' => NULL
             ]
         ],
         'optional' => [],
         'composer' => [
-            'aws/aws-sdk-php' => '^3.145'
+            'aws/aws-sdk-php' => '^3.155'
         ]
     ],
     'autoload' => [
@@ -35,10 +29,6 @@ return [
             'LibUploadAws\\Library' => [
                 'type' => 'file',
                 'base' => 'modules/lib-upload-aws/library'
-            ],
-            'LibUploadAws\\Model' => [
-                'type' => 'file',
-                'base' => 'modules/lib-upload-aws/model'
             ]
         ],
         'files' => []
@@ -46,6 +36,16 @@ return [
     'libMedia' => [
         'handlers' => [
             'aws' => 'LibUploadAws\\Library\\Media'
+        ]
+    ],
+    'libUpload' => [
+        'keeper' => [
+            'handlers' => [
+                'aws' => [
+                    'class' => 'LibUploadAws\\Library\\Keeper',
+                    'use' => TRUE
+                ]
+            ]
         ]
     ]
 ];
