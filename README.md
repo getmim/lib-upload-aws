@@ -17,7 +17,8 @@ untuk menentukan hostname aws yang akan dianggap sebagai kepemilikan
 return [
     'libUploadAws' => [
         'server' => [
-            'host' => 'https://project.s3.ap-southeast-1.amazonaws.com/media/'
+            'host' => 'https://project.s3.ap-southeast-1.amazonaws.com/media/',
+            'base' => '/media/'
         ],
         'aws' => [
             'bucket' => 'project',

@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-upload-aws',
-    '__version' => '0.0.2',
+    '__version' => '0.0.3',
     '__git' => 'git@github.com:getmim/lib-upload-aws.git',
     '__license' => 'MIT',
     '__author' => [
@@ -46,6 +46,11 @@ return [
                     'use' => TRUE
                 ]
             ]
+        ]
+    ],
+    'libUploadAws' => [
+        'server' => [
+            'base' => ''
         ]
     ]
 ];

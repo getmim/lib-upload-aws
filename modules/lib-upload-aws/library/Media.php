@@ -35,7 +35,7 @@ class Media implements \LibMedia\Iface\Handler
 
         $s3->getObject([
             'Bucket' => $aws->bucket,
-            'Key'    => $path,
+            'Key'    => ltrim($config->server->base . $path, '/'),
             'SaveAs' => $local_path
         ]);
 

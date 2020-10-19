@@ -26,6 +26,7 @@ class Keeper implements \LibUpload\Iface\Keeper
     static function save(object $file): ?string{
         $config = \Mim::$app->config->libUploadAws;
         $aws    = $config->aws;
+        $server = $config->server;
 
         $s3 = new S3Client([
             'version'       => 'latest',
@@ -38,7 +39,7 @@ class Keeper implements \LibUpload\Iface\Keeper
 
         $result = $s3->putObject([
             'Bucket'        => $aws->bucket,
-            'Key'           => $file->target,
+            'Key'           => ltrim($server->base . $file->target, '/'),
             'SourceFile'    => $file->source,
             'ACL'           => 'public-read',
             'ContentType'   => $file->type
